@@ -1,0 +1,1030 @@
+-- =========================================
+-- FayintX HUB | OFFICIAL UI Windui v3.7
+-- =========================================
+
+if getgenv().FayintX_HUB_LOADED then return end
+getgenv().FayintX_HUB_LOADED = true
+
+-- ======================
+-- CONFIG
+-- ======================
+local HUB_VERSION = "v3.7"
+local DISCORD_LINK = ""
+local SCRIPT_STATUS = "🟢 Work"
+
+-- ======================
+-- LOAD WINDUI
+-- ======================
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+-- ======================
+-- THEME
+-- ======================
+WindUI:AddTheme({
+    Name = "FayintX Exploit",
+    Accent = WindUI:Gradient({
+        ["0"] = { Color = Color3.fromHex("#1f1f23"), Transparency = 0 },
+        ["100"] = { Color = Color3.fromHex("#18181b"), Transparency = 0 },
+    }, {Rotation = 0}),
+    Dialog = Color3.fromHex("#161616"),
+    Outline = Color3.fromHex("#FFFFFF"),
+    Text = Color3.fromHex("#FFFFFF"),
+    Placeholder = Color3.fromHex("#7a7a7a"),
+    Background = Color3.fromHex("#101010"),
+    Button = Color3.fromHex("#52525b"),
+    Icon = Color3.fromHex("#a1a1aa")
+})
+
+-- ======================
+-- WINDOW
+-- ======================
+local Window = WindUI:CreateWindow({
+    Title = "FayintX Hub | " .. HUB_VERSION,
+    Icon = "rbxassetid://106899268176689",
+    Author = "FayintX Dev",
+    Folder = "FayintXConfig",
+
+    Size = UDim2.fromOffset(530, 320),
+    MinSize = Vector2.new(320, 300),
+    MaxSize = Vector2.new(900, 600),
+    Transparent = true,
+    Theme = "Crimson",
+    Resizable = true,
+    SideBarWidth = 150,
+    BackgroundImageTransparency = 0.42,
+})
+
+Window:SetToggleKey(Enum.KeyCode.G)
+
+-- ======================
+-- OPEN BUTTON (MOBILE)
+-- ======================
+Window:EditOpenButton({
+    Title = "FayintX",
+    Icon = "rbxassetid://106899268176689",
+    CornerRadius = UDim.new(0,16),
+    StrokeThickness = 2,
+    Color = ColorSequence.new(
+        Color3.fromHex("FF0F7B"),
+        Color3.fromHex("F89B29")
+    ),
+    OnlyMobile = true,
+    Enabled = true,
+    Draggable = true,
+})
+
+Window:SetIconSize(35)
+
+-- ======================
+-- TAG Premium + VERSION + STATUS
+-- ======================
+Window:Tag({
+    Title = "PREMIUM",
+    Color = Color3.fromHex("#1f1f1f"),
+    Radius = 13,
+})
+
+Window:Tag({
+    Title = HUB_VERSION,
+    Color = Color3.fromHex("#1f1f1f"),
+    Radius = 8,
+})
+
+Window:Tag({
+    Title = SCRIPT_STATUS,
+    Color = SCRIPT_STATUS == "🟢 Work" and Color3.fromHex("#4B00FF") or Color3.fromHex("#7F00FF"),
+    Radius = 8,
+})
+
+-- ======================
+-- TAB INFO
+-- ======================
+local InfoTab = Window:Tab({Title = "Info", Icon = "info"})
+
+-- Custom Section + Discord Copy
+local Section = InfoTab:Section({ 
+    Title = "Have Problem / Need Help? Join Server Now",
+    Box = true,
+    TextTransparency = 0.05,
+    TextXAlignment = "Center",
+    TextSize = 17, 
+    Opened = true,
+})
+
+InfoTab:Select()
+
+local function copyLink(link, buttonTitle, notifTitle, notifContent)
+    local Button = InfoTab:Button({
+        Title = buttonTitle or "Copy Link",
+        Desc = "Klik untuk menyalin link",
+        Locked = false,
+        Callback = function()
+            if setclipboard then setclipboard(link) end
+            WindUI:Notify({
+                Title = notifTitle or "Copied!",
+                Content = notifContent or ("Link '" .. link .. "' berhasil dicopy ✅"),
+                Duration = 3,
+                Icon = "bell",
+            })
+            print("Link copied:", link)
+        end
+    })
+    return Button
+end
+
+copyLink(
+    "https://discord.gg/YagexWWu6", 
+    "Copy Discord Link",              
+    "Discord Copied!",                 
+    "Link berhasil disalin ke clipboard ✅" 
+)
+
+-- Additional Info Paragraph
+InfoTab:Paragraph({
+    Title = "Fayintx Hub Information",
+    Desc = [[
+━━━━━━━━━━━━━━━━━━━━
+Status : ]] .. SCRIPT_STATUS .. [[
+Version : ]] .. HUB_VERSION .. [[
+
+Atomic Script Only
+NO Premium ❌
+
+Semua fitur gratis.
+Semua update untuk semua user.
+
+Developer : Fay Dev
+⚠️ Dilarang menjual ulang!
+
+💬note key copy avatar
+di bawah atau ini Ulises84342376
+━━━━━━━━━━━━━━━━━━━━
+]]
+})
+
+InfoTab:Button({
+    Title = "Copy key copy avatar",
+    Desc = Ulises84342376,
+    Callback = function()
+        if setclipboard then setclipboard(Ulises84342376) end
+        WindUI:Notify({Title="Copied!", Content="copy avatar dicopy ✅", Duration=3})
+    end
+})
+
+-- ======================
+-- TAB MAIN
+-- ======================
+local MainTab = Window:Tab({Title = "Main 🚀", Icon = "rocket"})
+
+MainTab:Paragraph({
+    Title = "🔥 New Script EGCFB",
+    Desc = [[
+━━━━━━━━━━━━━━━━━━━━
+Auto Clip
+God Mode
+Teleport 12 Tempat
+Auto Upgrade Carry
+Auto Upgrade Base
+Auto Sell
+Auto AFK
+━━━━━━━━━━━━━━━━━━━━
+]]
+})
+
+MainTab:Button({
+    Title = "Execute EGCFB",
+    Desc = "Run latest script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cyaahekel/NoxiusHub/refs/heads/main/noxius", true))()
+        WindUI:Notify({Title="Atomic Hub", Content="EGCFB Loaded 🚀", Duration=3})
+    end
+})
+MainTab:Button({
+    Title = "Execute rap",
+    Desc = "Run latest script",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/3CBCQanf"))()
+        WindUI:Notify({Title="Atomic Hub", Content="Rap Loaded 🚀", Duration=3})
+    end
+})
+MainTab:Button({
+    Title = "Execute Rrlva Lava for brainrot",
+    Desc = "Run latest script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/bananaGanteng/Legend/refs/heads/main/Rrlva2"))()
+        WindUI:Notify({Title="Atomic Hub", Content="Lava For brainrot Loaded 🚀", Duration=3})
+    end
+})
+MainTab:Button({
+    Title = "Execute ub Lava for brainrot",
+    Desc = "Run latest script",
+    Callback = function()
+        loadstring(game:HttpGet("https://gitlab.com/r_soft/main/-/raw/main/LoadUB.lua"))()
+        WindUI:Notify({Title="Fayint Hub", Content="Lava For brainrot Loaded 🚀", Duration=3})
+    end
+})
+
+MainTab:Button({
+    Title = "Execute tora Lava for brainrot",
+    Desc = "Run latest script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AX-Archive/ArceusXArchive/refs/heads/main/Tora%20Isme"))()
+        WindUI:Notify({Title="FayintX Hub", Content="Lava For brainrot Loaded 🚀", Duration=3})
+    end
+})
+
+MainTab:Button({
+    Title = "Execute Lava for brainrot",
+    Desc = "Run latest script",
+    Callback = function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/2529a5f9dfddd5523ca4e22f21cceffa.lua"))()
+        WindUI:Notify({Title="FayintX Hub", Content="Lava For brainrot Loaded 🚀", Duration=3})
+    end
+})
+-- ======================
+-- PLAYER TAB
+-- ======================
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local LocalPlayer = Players.LocalPlayer
+
+local PlayerTab = Window:Tab({
+    Title = "Player",
+    Icon = "user"
+})
+
+-- ======================
+-- MOVEMENT SECTION
+-- ======================
+
+local Movement = PlayerTab:Section({
+    Title = "Movement",
+    Description = "Character movement controls"
+})
+
+local currentSpeed = 16
+local currentJump = 50
+local infiniteJump = false
+
+local function ApplyMovement()
+    local char = LocalPlayer.Character
+    if char and char:FindFirstChildOfClass("Humanoid") then
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        hum.WalkSpeed = currentSpeed
+        hum.JumpPower = currentJump
+    end
+end
+
+-- WalkSpeed Input
+Movement:Input({
+    Title = "WalkSpeed",
+    Description = "Set character walking speed",
+    Placeholder = "Enter speed (16 default)",
+    Default = "16",
+    Callback = function(text)
+        local num = tonumber(text)
+        if num then
+            currentSpeed = num
+            ApplyMovement()
+        end
+    end
+})
+
+-- JumpPower Input
+Movement:Input({
+    Title = "JumpPower",
+    Description = "Set character jump power",
+    Placeholder = "Enter jump power (50 default)",
+    Default = "50",
+    Callback = function(text)
+        local num = tonumber(text)
+        if num then
+            currentJump = num
+            ApplyMovement()
+        end
+    end
+})
+
+-- Infinite Jump Toggle
+Movement:Toggle({
+    Title = "Infinite Jump",
+    Description = "You can jump repeatedly until heaven",
+    Default = false,
+    Callback = function(state)
+        infiniteJump = state
+    end
+})
+
+-- Infinite Jump Logic
+UserInputService.JumpRequest:Connect(function()
+    if infiniteJump then
+        local char = LocalPlayer.Character
+        if char and char:FindFirstChildOfClass("Humanoid") then
+            char:FindFirstChildOfClass("Humanoid"):ChangeState(Enum.HumanoidStateType.Jumping)
+        end
+    end
+end)
+
+-- Auto Apply On Respawn
+LocalPlayer.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    ApplyMovement()
+end)
+-- ======================
+-- TAB UNIVERSAL
+-- ======================
+local UniversalTab = Window:Tab({Title = "Universal 🌐", Icon = "globe"})
+
+UniversalTab:Button({
+    Title = "Fish It",
+    Desc = "Run Fish It script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/MajestySkie/Chloe-X/main/Main/ChloeX"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Tsunami",
+    Desc = "Run Tsunami  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/CyrusOffc/scriptcyrus/refs/heads/main/roblox/loader.lua"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "antiafk",
+    Desc = "Run Antiafk  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/Anti-afk/main/antiafkbyhassanxzyn"))();
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Universal",
+    Desc = "Run Tora universal  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Tora-Isme-Hub-UPD-262-Games-Support-keyless-49726"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Universal",
+    Desc = "Run Fake donate universal  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FayintXhub/FayintExploit/refs/heads/main/Fake-Donate"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Universal",
+    Desc = "Run virual keyboard universal  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FayintXhub/FayintExploit/refs/heads/main/Virtual-Keyboard"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Universal",
+    Desc = "Run fe emote no visual universal  script",
+    Callback = function()
+         loadstring(game:HttpGet("https://raw.githubusercontent.com/FayintXhub/FayintExploit/refs/heads/main/FE-Emotes"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Universal",
+    Desc = "Run fe animation no visual universal  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/FayintXhub/FayintExploit/refs/heads/main/FE-Animation"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+UniversalTab:Button({
+    Title = "Universal",
+    Desc = "Run fe aimbot  script",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/yR2T2vtp/raw"))()
+        WindUI:Notify({Title="Universal", Content="Loaded 🚀", Duration=3})
+    end
+})
+-- ======================
+-- TAB TSUNAMI
+-- ======================
+local TsunamiTab = Window:Tab({Title = "Tsunami 🌊", Icon = "water"})
+
+TsunamiTab:Paragraph({
+Title = "Tsunami Scripts",
+Desc = [[
+━━━━━━━━━━━━━━━━━━━━
+Semua script tsunami terbaru bisa dijalankan di sini.
+━━━━━━━━━━━━━━━━━━━━
+]]
+})
+
+TsunamiTab:Button({
+Title = "Execute Tsunami Script 1",
+Desc = "Run Tsunami Script Example",
+Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/EscapeTsunamiForBrainrots"))()
+WindUI:Notify({
+Title = "Tsunami Tab",
+Content = "Script 1 berhasil dijalankan 🌊",
+Duration = 3
+})
+end
+})
+
+TsunamiTab:Button({
+Title = "Execute Tsunami Script 2",
+Desc = "Run Tsunami Script Example 2",
+Callback = function()
+loadstring(game:HttpGet("https://pastebin.com/raw/Ai5WqH8N", true))()
+WindUI:Notify({
+Title = "Tsunami Tab",
+Content = "Script 2 berhasil dijalankan 🌊",
+Duration = 3
+})
+end
+}) 
+
+TsunamiTab:Button({
+Title = "Execute Tsunami Script 3",
+Desc = "Run Tsunami Script Example 3",
+Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kedd063/KdmlScripts/refs/heads/main/EscapeTsunamiForBrainrotsV4"))()WindUI:Notify({
+Title = "Tsunami Tab",
+Content = "Script 2 berhasil dijalankan 🌊",
+Duration = 3
+})
+end
+})
+ 
+TsunamiTab:Button({
+Title = "Execute Tsunami Script 4",
+Desc = "Run Tsunami Script Example 4",
+Callback = function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/Tsunami5/refs/heads/main/JN",true))()WindUI:Notify({
+Title = "Tsunami Tab",
+Content = "Script 2 berhasil dijalankan 🌊",
+Duration = 3
+})
+end
+}) 
+-- ======================
+-- TAB SHOP
+-- ======================
+local ShopTab = Window:Tab({Title = "Shop 🛒", Icon = "shopping_cart"})
+ShopTab:Paragraph({Title="Coming Soon", Desc="Shop masih dikembangkan"})
+-- ======================
+-- SCRIPT / LOADER TAB
+-- ======================
+
+local ScriptTab = Window:Tab({
+    Title = "Loader",
+    Icon = "box"
+})
+
+-- SECTION MAIN
+local Main = ScriptTab:Section({
+    Title = "Script Loader",
+    Description = "Load your favorite scripts"
+})
+
+-- Loader 1
+Main:Button({
+    Title = "Load Fishing Script",
+    Description = "Auto fishing script",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/FishForLuckyBlocks"))()
+    end
+})
+-- Loader 2 (ADA NOTE DI LUAR)
+Main:Button({
+    Title = "Utility (Avatar)",
+    Description = "🔑 Key: Ulises84342376 | Copy Avatar Tool",
+    Callback = function()
+        loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/fae673866fcc9433c5a942225bfe23be.lua"))()
+    end
+})
+
+-- Loader 3
+Main:Button({
+    Title = "Load 1+ speed brainrot",
+    Description = "1+ speed BRIAINROT",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/1SpeedEscapeforBrainrots"))()
+
+    end
+})
+
+-- Loader 3
+Main:Button({
+    Title = "Load jumptobriainrot",
+    Description = "jumptobriainrot",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/JumpforBrainrots"))()
+    end
+})
+
+-- Loader 4
+Main:Button({
+    Title = "Load Auto Farm Blox Fruits",
+    Description = "Auto farm script",
+    Callback = function()
+       repeat task.wait() until game:IsLoaded() and game.Players.LocalPlayer
+loadstring(game:HttpGet("https://github.com/LeafHubAcademy/LeafHub/raw/refs/heads/main/Leaf.lua"))() 
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load Fish for lucky box",
+    Description = "Fish for lucky box",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/FishForLuckyBlocks"))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load fish me",
+    Description = "Fish me",
+    Callback = function()
+       loadstring(game:HttpGet("https://pastefy.app/PmIB4lzX/raw",true))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load slap fights",
+    Description = "slap fights",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/SlapFights"))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load prison-life",
+    Description = "prison-life",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/zenss555a/script/refs/heads/main/Prison-Life.lua", true))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load bloxspin",
+    Description = "bloxspin",
+    Callback = function()
+       --[[
+Credit: Hermanos-Dev, Dont Delete This.
+]]--
+
+local loader = loadstring
+local url = "https://raw.githubusercontent.com/hermanos-dev/hermanos-hub/refs/heads/main/BlockSpin/blockspin-pvp.lua"
+local response = game:HttpGet(url)
+loader(response)()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load 99 night",
+    Description = "99 night",
+    Callback = function()
+       loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/FoxnameHub.lua"))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load fisch",
+    Description = "fisch",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/KAN-FISCH/tesss/refs/heads/main/gunung/fish.lua"))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load fisch",
+    Description = "fisch",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/thantzy/thanhub/refs/heads/main/thanv1"))()
+    end
+})
+-- Loader 4
+Main:Button({
+    Title = "Load blox fruits",
+    Description = "blox fruits",
+    Callback = function()
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
+    end
+})
+-- ======================
+-- 👑 FAYINTX EXCLUSIVE TAB
+-- ======================
+
+local SpecialTab = Window:Tab({
+    Title = "👑 Exclusive",
+    Icon = "lock"
+})
+
+-- ======================
+-- SECTION: LOADER
+-- ======================
+
+local LoaderSection = SpecialTab:Section({
+    Title = "FayintX Private Loader",
+    Description = "Best & Selected Scripts Only 🚀"
+})
+
+-- 🎣 Fishing
+LoaderSection:Button({
+    Title = "🎣 Fishing Script [v1.2]",
+    Description = "Status: ✅ Working | Fishing star op",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/XPTmG2Bm/raw"))()
+    end
+})
+
+-- 👀 instan take
+LoaderSection:Button({
+    Title = "👀 instan take [v1.0]",
+    Description = "Status: ✅ Working | instan take all map",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/d3Kb8ICl/raw"))()
+    end
+})
+
+-- 🎁 Lucky Box
+LoaderSection:Button({
+    Title = "🎁 Lucky Box [v1.1]",
+    Description = "Status: ⚠️ lumin | Auto Farm & Open",
+    Callback = function()
+        loadstring(game:HttpGet("http://luminon.top/loader.lua"))()
+    end
+})
+
+-- ⚡ Secret
+LoaderSection:Button({
+    Title = "⚡ godmode v2  Script [v2.0]",
+    Description = "Status: 🔥 OP | Hidden Feature",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastefy.app/JWHZkgiZ/raw"))()
+    end
+})
+
+-- ======================
+-- SECTION: QUICK LOAD
+-- ======================
+
+local QuickSection = SpecialTab:Section({
+    Title = "Quick Actions",
+    Description = "Instant Execute ⚡"
+})
+
+QuickSection:Button({
+    Title = "🚀 Load All Scripts",
+    Description = "Execute all exclusive scripts",
+    Callback = function()
+        loadstring(game:HttpGet("URL_SCRIPT_FISHING"))()
+        loadstring(game:HttpGet("URL_SCRIPT_LAVA"))()
+        loadstring(game:HttpGet("URL_SCRIPT_LUCKY"))()
+    end
+})
+
+-- ======================
+-- 📢 NOTE
+-- ======================
+
+SpecialTab:Paragraph({
+    Title = "📢 FayintX Note",
+    Content = "This is FREE exclusive script 👑\n\nGunakan dengan bijak.\nJika script tidak work berarti sudah di fix / patch dev.\nSetiap game memiliki sistem anti cheat yang berbeda.\n\nStay low & enjoy 🔥"
+})
+-- ======================
+-- TAB SETTING
+-- ======================
+local SettingTab = Window:Tab({Title = "Setting 🔧", Icon = "settings"})
+
+-- Paragraph penjelasan
+SettingTab:Paragraph({
+    Title = "Pengaturan FayintX Hub",
+    Desc = [[
+━━━━━━━━━━━━━━━━━━━━
+Di sini lo bisa atur tampilan, notifikasi, dan keybind hub.
+━━━━━━━━━━━━━━━━━━━━
+]]
+})
+
+-- Toggle Notifikasi
+local notifEnabled = true
+SettingTab:Toggle({
+    Title = "Enable Notifications",
+    Desc = "Nyalakan atau matikan notifikasi pop-up",
+    Enabled = notifEnabled,
+    Callback = function(state)
+        notifEnabled = state
+        WindUI:Notify({
+            Title = "Setting",
+            Content = "Notifications " .. (state and "Enabled ✅" or "Disabled ❌"),
+            Duration = 3
+        })
+    end
+})
+
+-- Theme Switcher
+local themes = {"Dark", "Light", "Ocean", "Crimson"} -- 
+local currentTheme = "Cismson"
+SettingTab:Dropdown({
+    Title = "Select Theme",
+    Desc = "Ganti tampilan hub",
+    Options = themes,
+    Default = currentTheme,
+    Callback = function(selected)
+        currentTheme = selected
+        -- Set theme 
+        if selected == "Crimson" then
+            WindUI:AddTheme({
+                Name = "Crimson",
+                Accent = WindUI:Gradient({
+                    ["0"] = { Color = Color3.fromHex("#8B0000"), Transparency = 0 },
+                    ["100"] = { Color = Color3.fromHex("#FF0000"), Transparency = 0 },
+                }, {Rotation = 0}),
+                Dialog = Color3.fromHex("#5C0000"),
+                Outline = Color3.fromHex("#FFFFFF"),
+                Text = Color3.fromHex("#FFFFFF"),
+                Placeholder = Color3.fromHex("#B22222"),
+                Background = Color3.fromHex("#3E0000"),
+                Button = Color3.fromHex("#660000"),
+                Icon = Color3.fromHex("#FF4500")
+            })
+        end
+        Window:SetTheme(selected)
+        WindUI:Notify({
+            Title = "Setting",
+            Content = "Theme changed to " .. selected,
+            Duration = 3
+        })
+    end
+})
+
+-- Change Toggle Key
+SettingTab:Keybind({
+    Title = "Change Toggle Key",
+    Desc = "Ganti tombol buka/tutup hub",
+    Default = Enum.KeyCode.F,
+    Callback = function(newKey)
+        Window:SetToggleKey(newKey)
+        WindUI:Notify({
+            Title = "Setting",
+            Content = "Toggle key set to " .. tostring(newKey),
+            Duration = 3
+        })
+    end
+})
+-- TAB UPDATE LOG
+-- ======================
+local UpdateTab = Window:Tab({Title = "Update Log 📝", Icon = "clipboard"})
+
+UpdateTab:Paragraph({
+    Title = "Changelog",
+    Desc = [[
+    🚀 FAYINTX — Script Update
+Loader Expansion & System Enhancement
+This update introduces multiple new loaders and improvements to enhance accessibility, functionality, and overall performance.
+✨ New Loaders
+🍏 Blox Fruits Loader
+Added a dedicated loader for Blox Fruits, providing easier access and better script management.
+🎣 Fisch Loader
+New loader integration for Fisch, optimized for smooth execution and compatibility.
+🚔 Prison Life Loader
+Introduced a loader specifically for Prison Life, enabling faster and more efficient script usage.
+🎯 Aimbot Loader
+Added a new aimbot loader to improve targeting systems and enhance gameplay control.
+⚙️ Updates & Fixes
+🧠 Brainrot Jump Loader
+Added loader for Jump (Brainrot)
+🔧 Applied fixes to improve performance and stability
+🛠 Improvements
+⚙️ Improved loader responsiveness
+🚀 Enhanced execution stability
+🧩 Optimized internal structure for smoother performance
+💡 Summary
+This update significantly expands loader support across multiple games while improving system performance and reliability.
+FayintX continues to deliver a more flexible, powerful, and optimized experience.
+More loaders.
+Better performance.
+Stronger system.
+FayintX keeps evolving. 🔥
+
+    🚀 FAYINTX — Script Update
+Loader Expansion & Feature Integration
+This update focuses on expanding loader systems and adding new gameplay scripts to enhance flexibility and user control.
+✨ New Features & Integrations
+👋 Slap Fights Script
+Added a new script integration for Slap Fights, providing enhanced interaction and improved gameplay support.
+💎 Premium Loader
+Introduced a dedicated premium loader system for better script management and exclusive feature access.
+🛠 Admin Loader
+New admin loader added to provide advanced control, utilities, and extended functionality.
+🛠 Improvements
+⚙️ Improved loader performance and responsiveness
+🚀 Enhanced execution stability across all loaders
+🧩 Optimized internal system structure
+💡 Summary
+This update strengthens the loader system while expanding available scripts, delivering a more flexible and powerful experience for users.
+More control.
+Better access.
+Stronger system.
+FayintX keeps evolving. 🔥
+
+    🚀 FAYINTX — Script Update
+System Adjustment & Feature Expansion
+This update introduces new experimental scripts and applies important changes to the access system, improving overall control and consistency.
+✨ New Features & Scripts
+🎣 Fish Me Script
+Added a new automated fishing feature designed for smoother and more efficient gameplay.
+🎭 FE Emote (No Visual)
+A new emote system that runs without visible effects, allowing subtle and clean execution.
+💸 Fake Donate Script
+New interactive feature for simulated donation effects within supported environments.
+🕺 Animation (No Visual)
+Added animation system that runs silently without visual output, optimized for performance and low detection.
+🔐 System Changes
+❌ Removed Keyless Access (Thu–Sun)
+🔑 Key System Now Required at All Times
+Access is now fully secured to maintain better control and system protection.
+🛠 Fixes & Improvements
+🔧 Minor bug fixes applied
+⚙️ Improved system stability
+🚀 Enhanced execution performance
+🧩 Optimized internal structure
+💡 Summary
+This update focuses on expanding script capabilities while tightening system security.
+With new features and a fully enforced key system, FayintX becomes more controlled, stable, and refined.
+More control.
+Better security.
+Cleaner execution.
+FayintX continues to evolve. 🔥
+
+    🚀 FAYINTX — Script Update
+Expanded Features & System Fixes
+This update introduces new automation features and enhances system stability to improve overall gameplay experience.
+✨ New Features
+🗺️ Instant Take All Map Work
+Added an instant collection feature for all map tasks.
+Save time and complete objectives efficiently without manual effort.
+🎣 Fishing Star Script
+New automated fishing system to boost rewards and make fishing more effective.
+Optimized for consistent performance and better results in-game.
+🛠 Fixes & Improvements
+🔧 Fixed minor bugs affecting feature performance
+⚙️ Improved system stability and execution consistency
+🚀 Enhanced internal structure for smoother operation
+💡 Summary
+This update increases automation, reduces grind time, and improves system reliability.
+FayintX continues to deliver a seamless, powerful, and enjoyable experience.
+Faster tasks.
+Better rewards.
+Smoother gameplay.
+FayintX keeps evolving. 🚀
+
+    🚀 FAYINTX — Script Update
+Advanced Feature Expansion & System Optimization
+This update focuses on expanding gameplay capabilities while refining overall system performance.
+FayintX continues to evolve with better automation, smoother execution, and more control for users.
+✨ New Features & Integrations
+🌋 Lava Script (Brainrot 3)
+A newly integrated script designed to enhance interaction and gameplay flow within Brainrot 3 script. 
+Provides better control and improved functionality for lava-related mechanics.
+🎣 Fish for Lucky Box
+A new automated fishing system that allows users to farm and increase lucky box rewards more efficiently.
+Optimized for consistent performance and better reward chances.
+⚡ +1 Speed (Brainrot)
+Introduced a speed enhancement feature to improve movement responsiveness and overall gameplay flow.
+Perfect for faster navigation and smoother control.
+🧠 Jump to Brainrot
+A quick access feature that allows instant movement or teleportation directly to Brainrot-related areas.
+Designed to reduce time and improve efficiency during gameplay.
+🛠 Fixes & System Improvements
+🔧 Fixed various bugs affecting script performance
+⚙️ Improved overall system stability
+🚀 Enhanced execution consistency across features
+🧩 Optimized internal structure for smoother operation
+💡 Summary
+This update brings a significant improvement in both functionality and performance.
+With new automation features and system optimizations, FayintX delivers a more seamless and powerful experience.
+More features.
+Better control.
+Smoother performance.
+FayintX keeps evolving. 🚀
+
+    🚀 FAYINTX — New Script Update
+Universal (Free+)
+Bringing new automation features and improved functionality for a better experience.
+✨ Added Features
+🧍 Auto Walk Copy Avatar
+Automatically follows and adjusts to avatars taller than you.
+🎣 Fish for Luck (Blox)
+New fishing feature to increase luck and rewards.
+🍏 Auto Farm (Blox Fruits)
+Automated farming system for faster progression.
+📦 Loader Tab Added
+New tab for easier script loading and management.
+More features.
+Better automation.
+Smoother experience.
+
+    🚀 FAYINTX v3.1 — Feature Expansion Update
+This update brings interface improvements and limited-time access adjustments.
+✨ Added
+➕ User Tab Added
+New dedicated user section for better navigation and organization.
+🔓 No Key Access (Limited Days)
+Key system disabled every Thursday, Friday, Saturday, and Sunday.
+🛠 Fixed
+❗ Fixed missing tab issue
+⚙️ Improved UI structure stability
+Smoother navigation.
+Better access control.
+Cleaner experience.
+
+    🔐 FAYINTX v2.1.9 — Rebrand & Update
+Atomic Hub telah berevolusi menjadi FayintX!
+Update ini membawa peningkatan sistem keamanan, stabilitas, dan identitas baru yang lebih kuat.
+🔑 New Features
+Key System Integrated
+Sistem autentikasi baru untuk meningkatkan keamanan dan mengatur akses.
+🛠 Fixes & Improvements
+🔧 Fixed executor compatibility issues
+⚡ Resolved script downtime errors
+🚀 Improved execution stability & reliability
+🧩 Optimized internal performance
+🔄 Why the Rebrand?
+🚀 New vision & identity
+🔐 Enhanced security & system structure
+⚙️ Focused on long-term development
+💎 Professional branding & premium experience
+Same core, new power.
+Welcome to FayintX — stronger, safer, and more refined than ever.
+
+    🚀 ATOMIC HUB — v2.1.8
+Minor Update • Stability & Improvements
+We’ve released a small but important update focused on performance, stability, and user experience.
+✨ What’s New
+➕ New Script Added
+Expanded functionality with additional script support.
+🛡️ Integrated Anti-AFK System
+Stay connected longer without interruption.
+🛠 Fixes & Improvements
+⚠️ Resolved minor bugs for smoother performance
+🔧 Fixed script down issue
+🚀 Improved overall stability & execution reliability
+This update ensures ATOMIC HUB runs cleaner, smoother, and more stable than before.
+
+v2.0 - UI REWORK 🌟
+- Tampilan baru modern
+- Theme baru: Dark, Light, Ocean, Crimson Fix
+- Mobile Open Button
+- Window toggle key bisa diganti
+- Freemium + Version + Status tag
+- Info Tab update link Discord
+
+v1.9 - Tsunami Tab 🌊
+- Tambah Tsunami scripts
+- Bisa jalankan langsung dari hub
+
+v1.89 - Minor UI & Tag Update
+- Window Tags: Freemium + Version + Status
+- Discord Section Update
+- Info Tab paragraph update
+
+v1.88 - UI Rework
+- Tampilan baru
+- Theme baru
+- Mobile button
+- Lebih modern
+
+v1.x
+- EGCFB Added
+- Universal Added
+]]
+})
+-- ======================
+-- TAB CREDITS
+-- ======================
+local CreditTab = Window:Tab({Title = "Credits ⭐", Icon = "star"})
+
+CreditTab:Paragraph({
+    Title = "FayintX Hub Credit",
+    Desc = [[
+━━━━━━━━━━━━━━━━━━━━
+Developed by : FayintX ⚛️
+UI Library   : WindUI
+Special Thanks: FayintX Community
+━━━━━━━━━━━━━━━━━━━━
+]]
+})
+-- ======================
+-- WELCOME
+-- ======================
+WindUI:Notify({
+    Title = "⚛️ FayintX Hub",
+    Content = "Loaded 🚀 | "..HUB_VERSION.." | "..SCRIPT_STATUS,
+    Duration = 5,
+})
