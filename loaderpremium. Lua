@@ -76,10 +76,10 @@ Window:EditOpenButton({
 Window:SetIconSize(35)
 
 -- ======================
--- TAG Premium + VERSION + STATUS
+-- TAG Freemium + VERSION + STATUS
 -- ======================
 Window:Tag({
-    Title = "PREMIUM",
+    Title = "FREEMIUM",
     Color = Color3.fromHex("#1f1f1f"),
     Radius = 13,
 })
@@ -470,6 +470,18 @@ Content = "Script 2 berhasil dijalankan 🌊",
 Duration = 3
 })
 end
+})
+ 
+TsunamiTab:Button({
+Title = "Execute Tsunami Script 5",
+Desc = "Run Tsunami Script Example 5",
+Callback = function()
+loadstring(game:HttpGet("https://pastefy.app/MxAm4M03/raw"))()
+Title = "Tsunami Tab",
+Content = "Script 2 berhasil dijalankan 🌊",
+Duration = 3
+})
+end
 }) 
 -- ======================
 -- TAB SHOP
@@ -615,6 +627,7 @@ Main:Button({
       loadstring(game:HttpGet("https://raw.githubusercontent.com/flazhy/QuantumOnyx/refs/heads/main/QuantumOnyx.lua"))()
     end
 })
+
 -- ======================
 -- 👑 FAYINTX EXCLUSIVE TAB
 -- ======================
